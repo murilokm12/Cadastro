@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Loja - Home</title>
+  <link rel="stylesheet" href="../static/cadastro.css">
+</head>
+<body>
+  <header>
+    <h1>Minha Loja</h1>
+    <nav>
+      <a href="">+ Adicionar produto</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="intro">
+      <h2>Produtos</h2>
+      <p>Lista dos produtos cadastrados no sistema.</p>
+    </section>
+
+    {% if products and products|length > 0 %}
+      <section class="grid">
+        {% for item in produtos %}
+        {{p.nome}}
+        <p>ashgfdgashdfafsdhfhagsdfhasd</p>
+        <p>asdasdasd</p>
+          <!-- <article class="card">
+            <img class="thumb" src="{{ p.image_url }}" alt="Imagem de {{ p.name }}" onerror="this.src='https://via.placeholder.com/400x300?text=Sem+imagem'">
+            <div class="card-body">
+              <div class="title">{{ p.nome }}</div>
+              <div class="meta">Em estoque: {{ p.qtd_estoque }}</div>
+              <div class="badge">Detalhes</div>
+            </div>
+          </article> -->
+        {% endfor %}
+      </section>
+
+    {% else %}
+      <section class="empty">
+        <p>Nenhum produto cadastrado ainda.</p>
+        <p><a href="">Clique aqui para cadastrar o primeiro produto</a></p>
+      </section>
+    {% endif %}
+  </main>
+
+  
+  <footer>
+    &copy; {{ current_year if current_year is defined else '' }} Minha Loja — Exemplo com Flask
+  </footer>
+</body>
+</html>

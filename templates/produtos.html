@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Cadastre um produto</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <div class="top">
+    <div class="page-title">Cadastrar produto</div>
+    <div><a class="back" href="{{ url_for('home') }}">← Voltar</a></div>
+  </div>
+
+  <div class="container">
+    <div class="card">
+      <form action="produtos" method="post" novalidate>
+        <div>
+          <label for="name">Nome do produto</label>
+          <input id="name" name="name" type="text" placeholder="Ex: Fone sem fio" required maxlength="120">
+        </div>
+
+        <div>
+          <label for="quantity">Quantidade em estoque</label>
+          <input id="quantity" name="quantity" type="number" placeholder="Ex: 10" min="0" required>
+          <div class="help">Digite 0 se o produto estiver sem estoque no momento.</div>
+        </div>
+
+        <div>
+          <label for="image_url">URL da imagem</label>
+          <input id="image_url" name="image_url" type="url" placeholder="https://exemplo.com/imagem.jpg" required>
+        </div>
+
+        <div class="actions">
+          <button class="btn btn-primary" type="submit">Adicionar</button>
+          <a class="btn btn-secondary" href="{{ url_for('home') }}">Cancelar</a>
+        </div>
+      </form>
+    </div>
+  </div>
+</body>
+</html>
