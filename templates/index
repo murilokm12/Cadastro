@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Cadastro Simples</title>
+    <link rel="stylesheet" href="../static/cadastro.css">
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+    <div class="wrap">
+        <h1>Cadastro de Aluno</h1>
+
+        <form action="/adicionar" method="post" class="form">
+            <input name="nome" type="text" placeholder="Nome" required>
+            <input name="idade" type="text" placeholder="Idade" required>
+            <input name="email" type="email" placeholder="E-mail" required>
+            <button type="submit">Cadastrar</button>
+        </form>
+
+        <h2>Alunos Cadastrados</h2>
+
+        <ul class="list">
+            <!-- Aqui voce deve colocar as informaçoes dos usuarios voce tera que usar o for e  -->
+
+            {% for i in alunos %}
+
+            <li>{{ i[0]}}</li>
+            <li>{{ i[1] }}</li>
+            <li>{{ i[2] }}</li>
+            <form action="{{ url_for('deletar', aluno_id=i[0])}}" method="POST">
+
+                <button  type="submit">Excluir</button>
+            </form>
+            {% endfor %}
+
+        </ul>
+
+
+        <p>Nenhum aluno cadastrado.</p>
+
+
+    </div>
+</body>
+
+</html>
